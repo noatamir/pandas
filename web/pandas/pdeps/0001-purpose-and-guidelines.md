@@ -54,16 +54,25 @@ non-core contributors. To submit a PDEP as a community member, please propose th
 member to collaborate with. They can advise you on the PDEP process and should be listed as an
 advisor on the PDEP when it is submitted to the PDEP repository.
 
-### Workflow
+### Workflow and Decision-Making Process
+
+We decided to define discussion and voting periods to enable automation, and reduce
+communication hurdles, but not to enforce restrictions. In all the following, if the
+discussion needs more or less time, one could start the vote sooner, or move the PDEP back to
+draft. 
+
+#### Workflow
 
 The possible states of a PDEP are:
 
+- Draft
 - Under discussion
 - Accepted
 - Implemented
 - Rejected
 
-Next is described the workflow that PDEPs can follow.
+The following describes when and how the PDEP status changes. 
+
 
 #### Submitting a PDEP
 
@@ -71,8 +80,57 @@ Proposing a PDEP is done by creating a PR adding a new file to `web/pdeps/`.
 The file is a markdown file, you can use `web/pdeps/0001.md` as a reference
 for the expected format.
 
-The initial status of a PDEP will be `Status: Under discussion`. This will be changed to
-`Status: Accepted` when the PDEP is ready and has the approval of the core team.
+The initial status of a PDEP will be `Status: Draft`. This will be changed to
+`Status: Under discussion` by the author(s), when they are ready to proceed with the descision
+making process. 
+
+#### Schedule
+A PDEP discussion will remain open for up to 60 days. This period aims to enable participation
+from volunteers, who might not always be available to respond quickly, as well as provide ample
+time to make changes based on suggestions and considerations offered by the participants.
+Similarly, the following voting period will remain open for 15 days.
+
+To enable and encourage discussions on PDEPs, we follow a notification schedule. At each of the
+following steps, the pandas team, and the pandas dev mailing list are notified via GitHub and
+E-mail:
+- Once a PDEP is ready for discussion.
+- After 30 discussion days, with 30 days remaining for discussion.
+- After 45 discussion days, with 15 days remaining for discussion.
+- In case 15 days passed without any new comments, the authors may close the discussion period
+  and open the voting period.
+- Once the voting period starts, after 60 days or in case of an earlier vote, with 15 days
+  remaining for voting.
+- After 10 voting days, with 5 days remaining for voting.
+
+#### Casting Votes
+As the voting period starts, a VOTE issue is created which links to the PDEP discussion issue.
+Each voting member may cast a vote by adding one of the following comments:
+
+- 1: approve.
+- 0: abstain. 
+  - Reason: A one sentence reason is required.
+- -1: disapprove
+  - Reason: A one sentence reason is required.
+A disapprove vote requires prior participation in the PDEP discussion issue.
+
+Once the voting period ends, any voter may tally the votes in a comment, using the format: x-y-z,
+where x stands for the total of approving, y of abstaining, and z of disapproving votes cast.
+
+#### Quorum and Majority
+For a PDEP vote to result in accepting the proposal, a quorum is required. All votes (including
+abstentions) are counted towards the quorum. The quorum is computed as the lower of these two
+values:
+
+- 11 voting members.
+- 50% of voting members.
+
+Given a quorum, a majority of 75% of the non-abstaining votes is required as well, i.e. 75% of
+the approving and disapproving votes must be in favor. 
+
+Thus, abstaining votes count towards a quorum, but not towards a majority. A voting member might
+choose to abstain when they have participated in the discussion, have some objections to the
+proposal, but do not wish to stop the proposal from moving forward, nor indicate their full
+support.
 
 #### Accepted PDEP
 
