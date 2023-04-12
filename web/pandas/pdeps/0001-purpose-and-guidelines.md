@@ -106,7 +106,7 @@ E-mail:
 As the voting period starts, a VOTE issue is created which links to the PDEP discussion issue.
 Each voting member may cast a vote by adding one of the following comments:
 
-- 1: approve.
+- +1: approve.
 - 0: abstain. 
   - Reason: A one sentence reason is required.
 - -1: disapprove
